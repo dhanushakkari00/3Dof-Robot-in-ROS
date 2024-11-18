@@ -1,0 +1,37 @@
+urdf7:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 100 
+
+  # Position Controllers ---------------------------------------
+  joint1_position_controller:
+    type: position_controllers/JointPositionController
+    joint: link1_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  joint2_position_controller:
+    type: position_controllers/JointPositionController
+    joint: link2_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  joint3_position_controller:
+    type: position_controllers/JointPositionController
+    joints: right_gripper_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  
+  joint4_position_controller:
+    type: position_controllers/JointPositionController
+    joints: left_gripper_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  arm_controller:
+    type : position_controllers/JointTrajectoryController
+    joints : 
+      - link1_joint
+      - link2_joint
+      - left_gripper_joint
+      - right_gripper_joint
+
+  
+  
+      
+    
+  
